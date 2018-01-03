@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using CorpocastFAQApi.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace CorpocastFAQApi
 {
@@ -23,7 +26,13 @@ namespace CorpocastFAQApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //todo:Connect to cosmoDB instead
+            services.AddDbContext<FrequentlyAskedQuestionContext>(opt => opt.UseInMemoryDatabase("FrequentlyAskedQuestions"));
             services.AddMvc();
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
