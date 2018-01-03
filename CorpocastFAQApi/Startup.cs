@@ -11,7 +11,6 @@ using Microsoft.Extensions.Options;
 
 namespace CorpocastFAQApi
 {
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
