@@ -15,14 +15,19 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
-namespace CorpocastFAQApi
+namespace CorpocastCommonApi.Models
 {
-    public class AzureConfiguration
+    public class FrequentlyAskedQuestionContext : DbContext
     {
+        public FrequentlyAskedQuestionContext(DbContextOptions<FrequentlyAskedQuestionContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<FrequentlyAskedQuestion> FrequentlyAskedQuestions { get; set; }
+
+        public DbSet<BusinessEntity> BusinessEntities { get; set; }
     }
 }

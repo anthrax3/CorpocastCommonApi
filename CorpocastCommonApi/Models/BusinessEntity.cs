@@ -19,19 +19,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace CorpocastFAQApi.Models
+
+namespace CorpocastCommonApi.Models
 {
-    public class FrequentlyAskedQuestion
+    public class BusinessEntity
     {
-        public BusinessEntity ParentBusinessEntity{get; set;}
+        [JsonProperty(PropertyName = "id")]
+        public string Id { set; get; }
 
-        public long Id { get; set; }
+        public string CorpocastSubcriberNumber { set; get; }
 
-        public string Question { get; set; }
+        public string Code { set; get; }
 
-        public string Answer { get; set; }
+        public string Name { set; get; }
 
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
 
     }
 }

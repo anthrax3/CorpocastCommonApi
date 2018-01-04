@@ -20,10 +20,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CorpocastFAQApi.Models;
+using CorpocastCommonApi.Models;
 
 
-namespace CorpocastFAQApi.Controllers
+namespace CorpocastCommonApi.Controllers
 {
     [Route("api/[controller]")]
     public class FrequentlyAskedQuestionController : Controller

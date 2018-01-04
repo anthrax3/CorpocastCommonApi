@@ -20,12 +20,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CorpocastFAQApi.Models;
+using CorpocastCommonApi.Models;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 
-namespace CorpocastFAQApi.Controllers
+namespace CorpocastCommonApi.Controllers
 {
     [Route("api/[controller]")]
     public class BusinessEntityController : Controller
@@ -47,7 +47,7 @@ namespace CorpocastFAQApi.Controllers
 
             FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
-            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastFAQApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastFAQApi.Program.Configuration["CosmoDBPrimaryKey"]);
+            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastCommonApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastCommonApi.Program.Configuration["CosmoDBPrimaryKey"]);
 
             var response= await this.CosmoDBDocumentClient.ReadDocumentAsync(UriFactory.CreateDocumentUri("CorpocastFAQ", "CorpocastBusinessEntityCollection", id));
 
@@ -66,7 +66,7 @@ namespace CorpocastFAQApi.Controllers
 
         private async Task SavePost(BusinessEntity businessEntity)
         {
-            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastFAQApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastFAQApi.Program.Configuration["CosmoDBPrimaryKey"]);
+            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastCommonApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastCommonApi.Program.Configuration["CosmoDBPrimaryKey"]);
 
             if (businessEntity.Id == null || businessEntity.Id== string.Empty)
             {

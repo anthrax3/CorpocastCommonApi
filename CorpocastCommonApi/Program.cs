@@ -32,7 +32,7 @@ using Newtonsoft.Json;
 
 
 
-namespace CorpocastFAQApi
+namespace CorpocastCommonApi
 {
     public class Program
     {
