@@ -44,6 +44,7 @@ namespace CorpocastCommonApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             //todo:Connect to cosmoDB instead
             services.AddDbContext<FrequentlyAskedQuestionContext>(opt => opt.UseInMemoryDatabase("FrequentlyAskedQuestions"));
             services.AddMvc();
