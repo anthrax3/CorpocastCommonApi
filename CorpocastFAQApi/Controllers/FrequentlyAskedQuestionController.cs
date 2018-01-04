@@ -23,8 +23,7 @@ namespace CorpocastFAQApi.Controllers
             if (_context.FrequentlyAskedQuestions.Count() == 0)
             {
                 BusinessEntity businessEntity = new BusinessEntity
-                {
-                    Id = 1,
+                {                    
                     Name = "Lebeau"
                 };
 

@@ -63,6 +63,8 @@ namespace CorpocastFAQApi
 
             await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("CorpocastFAQ"), new DocumentCollection { Id = "CorpocastFAQCollection" });
 
+            await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("CorpocastFAQ"), new DocumentCollection { Id = "CorpocastBusinessEntityCollection" });
+
         }
 
             public static IWebHost BuildWebHost(string[] args) =>

@@ -10,8 +10,18 @@ namespace CorpocastFAQApi.Models
     public class BusinessEntity
     {
         [JsonProperty(PropertyName = "id")]
-        public long Id { set; get; }
+        public string Id { set; get; }
+
+        public string CorpocastSubcriberNumber { set; get; }
+
+        public string Code { set; get; }
 
         public string Name { set; get; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
     }
 }
