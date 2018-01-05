@@ -15,26 +15,22 @@
    limitations under the License.
 */
 
-using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 
-
-namespace CorpocastCommonApi.Models
+namespace CorpocastCommonModels.Models
 {
-    public class BusinessEntity
+    
+    public class FrequentlyAskedQuestionContext : DbContext
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { set; get; }
-
-        public string CorpocastSubcriberNumber { set; get; }
-
-        public string Code { set; get; }
-
-        public string Name { set; get; }
-
-        public override string ToString()
+                public FrequentlyAskedQuestionContext(DbContextOptions<FrequentlyAskedQuestionContext> options)
+            : base(options)
         {
-            return JsonConvert.SerializeObject(this);
         }
 
+        public DbSet<FrequentlyAskedQuestion> FrequentlyAskedQuestions { get; set; }
+
+        public DbSet<BusinessEntity> BusinessEntities { get; set; }
+        
     }
+    
 }
