@@ -17,11 +17,12 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace CorpocastCommonApi.Models
+namespace CorpocastCommonModels.Models
 {
+    
     public class FrequentlyAskedQuestionContext : DbContext
     {
-        public FrequentlyAskedQuestionContext(DbContextOptions<FrequentlyAskedQuestionContext> options)
+                public FrequentlyAskedQuestionContext(DbContextOptions<FrequentlyAskedQuestionContext> options)
             : base(options)
         {
         }
@@ -29,5 +30,7 @@ namespace CorpocastCommonApi.Models
         public DbSet<FrequentlyAskedQuestion> FrequentlyAskedQuestions { get; set; }
 
         public DbSet<BusinessEntity> BusinessEntities { get; set; }
+        
     }
+    
 }

@@ -1,5 +1,4 @@
-﻿/*
- 
+﻿/* 
    Copyright 2018 Christian Chicoine
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,14 +14,22 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace CorpocastCommonApi
+namespace CorpocastCommonModels.Models
 {
-    public class AzureConfiguration
+    public class BusinessEntity
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { set; get; }
+
+        public string CorpocastSubcriberNumber { set; get; }
+
+        public string Code { set; get; }
+
+        public string Name { set; get; }
+
+        public override string ToString() => JsonConvert.SerializeObject(this);
+
     }
 }
