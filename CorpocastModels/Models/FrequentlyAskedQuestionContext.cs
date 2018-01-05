@@ -15,18 +15,22 @@
    limitations under the License.
 */
 
-namespace CorpocastCommonApi.Models
+using Microsoft.EntityFrameworkCore;
+
+namespace CorpocastCommonModels.Models
 {
-    public class FrequentlyAskedQuestion
+    
+    public class FrequentlyAskedQuestionContext : DbContext
     {
-        public BusinessEntity ParentBusinessEntity{get; set;}
+                public FrequentlyAskedQuestionContext(DbContextOptions<FrequentlyAskedQuestionContext> options)
+            : base(options)
+        {
+        }
 
-        public long Id { get; set; }
+        public DbSet<FrequentlyAskedQuestion> FrequentlyAskedQuestions { get; set; }
 
-        public string Question { get; set; }
-
-        public string Answer { get; set; }
-
-
+        public DbSet<BusinessEntity> BusinessEntities { get; set; }
+        
     }
+    
 }

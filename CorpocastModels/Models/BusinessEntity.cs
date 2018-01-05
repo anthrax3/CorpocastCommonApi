@@ -18,7 +18,7 @@
 using Newtonsoft.Json;
 
 
-namespace CorpocastCommonApi.Models
+namespace CorpocastCommonModels.Models
 {
     public class BusinessEntity
     {
