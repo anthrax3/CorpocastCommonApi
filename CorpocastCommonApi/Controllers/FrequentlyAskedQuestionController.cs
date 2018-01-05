@@ -15,10 +15,13 @@
    limitations under the License.
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CorpocastCommonApi.Models;
+
 
 namespace CorpocastCommonApi.Controllers
 {
@@ -65,11 +68,14 @@ namespace CorpocastCommonApi.Controllers
                             e.ParentBusinessEntity
                         };
    
+
             if (query == null)
             {
                 return NotFound();
             }
             return new ObjectResult(query.FirstOrDefault());
         }
+
+
     }
 }
