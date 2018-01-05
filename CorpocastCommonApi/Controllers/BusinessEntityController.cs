@@ -16,9 +16,7 @@
  */
 
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Documents.Client;
 using CorpocastCosmoDBDAL;
 using CorpocastCommonModels.Models;
 
@@ -51,23 +49,11 @@ namespace CorpocastCommonApi.Controllers
         [HttpPost]
         public async void PostAsync([FromBody]BusinessEntity value)
         {
-            //await SavePost(value);            
+            CosmoDBBusinessEntity cosmoDBBusinessEntity = new CosmoDBBusinessEntity();
 
-        }
+            await cosmoDBBusinessEntity.CreateAsync(value);            
 
-        private async Task SavePost(BusinessEntity businessEntity)
-        {
-            /*
-            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastCommonApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastCommonApi.Program.Configuration["CosmoDBPrimaryKey"]);
-
-            if (businessEntity.Id == null || businessEntity.Id== string.Empty)
-            {
-                businessEntity.Id = string.Concat(businessEntity.CorpocastSubcriberNumber, businessEntity.Code);
-
-            }
-            await this.CosmoDBDocumentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("CorpocastFAQ", "CorpocastBusinessEntityCollection"), businessEntity);
-            */
-        }
+        }        
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]

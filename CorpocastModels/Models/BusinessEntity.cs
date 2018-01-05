@@ -1,5 +1,4 @@
-﻿/*
- 
+﻿/* 
    Copyright 2018 Christian Chicoine
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +16,6 @@
 
 using Newtonsoft.Json;
 
-
 namespace CorpocastCommonModels.Models
 {
     public class BusinessEntity
@@ -31,10 +29,7 @@ namespace CorpocastCommonModels.Models
 
         public string Name { set; get; }
 
-        public override string ToString()
-        {
-            return JsonConvert.SerializeObject(this);
-        }
+        public override string ToString() => JsonConvert.SerializeObject(this);
 
     }
 }
