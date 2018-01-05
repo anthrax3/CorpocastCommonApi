@@ -13,25 +13,20 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
  */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CorpocastCommonApi.Models;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using Newtonsoft.Json;
+using CorpocastCosmoDBDAL;
+using CorpocastCommonModels.Models;
 
 namespace CorpocastCommonApi.Controllers
 {
     [Route("api/[controller]")]
     public class BusinessEntityController : Controller
     {
-        private DocumentClient CosmoDBDocumentClient;
-
+        
         // GET: api/<controller>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -41,41 +36,25 @@ namespace CorpocastCommonApi.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public async Task<string> GetAsync(string id)
+        public string Get(string id)
         {
+            CosmoDBBusinessEntity cosmoDBBusinessEntity=new CosmoDBBusinessEntity();
+
+            BusinessEntity businessEntity = cosmoDBBusinessEntity.GetOneAsync(id).Result;
             
-
-            FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
-
-            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastCommonApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastCommonApi.Program.Configuration["CosmoDBPrimaryKey"]);
-
-            var response= await this.CosmoDBDocumentClient.ReadDocumentAsync(UriFactory.CreateDocumentUri("CorpocastFAQ", "CorpocastBusinessEntityCollection", id));
-
-            BusinessEntity businessEntity = (BusinessEntity)(dynamic)response.Resource;
-
             return businessEntity.ToString();
+
         }
 
         // POST api/<controller>
         [HttpPost]
         public async void PostAsync([FromBody]BusinessEntity value)
         {
-            await SavePost(value);            
+            CosmoDBBusinessEntity cosmoDBBusinessEntity = new CosmoDBBusinessEntity();
 
-        }
+            await cosmoDBBusinessEntity.CreateAsync(value);            
 
-        private async Task SavePost(BusinessEntity businessEntity)
-        {
-            this.CosmoDBDocumentClient = new DocumentClient(new Uri(CorpocastCommonApi.Program.Configuration["CosmoDBEndpointUri"]), CorpocastCommonApi.Program.Configuration["CosmoDBPrimaryKey"]);
-
-            if (businessEntity.Id == null || businessEntity.Id== string.Empty)
-            {
-                businessEntity.Id = string.Concat(businessEntity.CorpocastSubcriberNumber, businessEntity.Code);
-
-            }
-            await this.CosmoDBDocumentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("CorpocastFAQ", "CorpocastBusinessEntityCollection"), businessEntity);
-
-        }
+        }        
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
