@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Azure.Documents;
+﻿/*
+ 
+   Copyright 2018 Christian Chicoine
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+ */
+
 using Microsoft.Azure.Documents.Client;
 using CorpocastCommonModels.Models;
 using System.Threading.Tasks;
-
-using System.Configuration;
-
-using System.Linq;
-
-using System.Net;
-
-
-
-
+using System;
 
 namespace CorpocastCosmoDBDAL
 {
@@ -21,18 +27,26 @@ namespace CorpocastCosmoDBDAL
     {
         public async Task<string> CreateAsync(BusinessEntity businessEntity)
         {
-            
-            
-            if (businessEntity.Id == null || businessEntity.Id== string.Empty)
+
+            try
             {
-                businessEntity.Id = string.Concat(businessEntity.CorpocastSubcriberNumber, businessEntity.Code);
+                if (businessEntity.Id == null || businessEntity.Id == string.Empty)
+                {
+                    businessEntity.Id = string.Concat(businessEntity.CorpocastSubcriberNumber, businessEntity.Code);
+
+                }
+
+                await this.CosmoDBDocumentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("CorpocastFAQ", "CorpocastBusinessEntityCollection"), businessEntity);
+
+                return "true";
 
             }
-
-            await this.CosmoDBDocumentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("CorpocastFAQ", "CorpocastBusinessEntityCollection"), businessEntity);
+            catch(Exception e)
+            {
+                throw e;
+            }
             
 
-            return "true";
         }
 
         public async Task<BusinessEntity> GetOneAsync(string id)
