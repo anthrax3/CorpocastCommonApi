@@ -11,7 +11,6 @@
     <Folder Include="Controllers\Contests\" />
     <Folder Include="Controllers\Management\Brand\BrandMarketingContents\" />
     <Folder Include="Controllers\Management\Brand\BrandsTree\" />
-    <Folder Include="Controllers\Management\Brand\BrandFAQ\" />
     <Folder Include="Controllers\Management\Brand\BrandNews\" />
     <Folder Include="Controllers\Management\Brand\BrandVisuals\" />
     <Folder Include="Controllers\Management\Brand\BrandPremiseLocations\" />
