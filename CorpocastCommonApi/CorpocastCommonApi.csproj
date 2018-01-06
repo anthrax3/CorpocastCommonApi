@@ -5,6 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\EmploymentInquiries\" />
+    <Folder Include="Controllers\FAQ\" />
+    <Folder Include="Controllers\ElectronicDocuments\" />
+    <Folder Include="Controllers\Contests\" />
+    <Folder Include="Controllers\Management\Brand\BrandMarketingContents\" />
+    <Folder Include="Controllers\Management\Brand\BrandsTree\" />
+    <Folder Include="Controllers\Management\Brand\BrandFAQ\" />
+    <Folder Include="Controllers\Management\Brand\BrandNews\" />
+    <Folder Include="Controllers\Management\Brand\BrandVisuals\" />
+    <Folder Include="Controllers\Management\Brand\BrandPremiseLocations\" />
+    <Folder Include="Controllers\Management\Brand\BrandNewsLetters\" />
+    <Folder Include="Controllers\Management\Brand\BrandContests\" />
+    <Folder Include="Controllers\Management\Brand\BrandCertifications\" />
+    <Folder Include="Controllers\Management\Brand\BrandMediaRelations\" />
+    <Folder Include="Controllers\Management\Brand\BrandAwards\" />
+    <Folder Include="Controllers\Management\Corporate\" />
+    <Folder Include="Controllers\Management\Product\" />
+    <Folder Include="Controllers\Management\ProductLine\" />
+    <Folder Include="Controllers\Management\Subsidiary\" />
+    <Folder Include="Controllers\Visuals\" />
+    <Folder Include="Controllers\News\" />
+    <Folder Include="Controllers\SponsorshipInquiries\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
