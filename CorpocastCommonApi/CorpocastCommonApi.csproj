@@ -15,7 +15,6 @@
     <Folder Include="Controllers\Management\Brand\BrandVisuals\" />
     <Folder Include="Controllers\Management\Brand\BrandPremiseLocations\" />
     <Folder Include="Controllers\Management\Brand\BrandNewsLetters\" />
-    <Folder Include="Controllers\Management\Brand\BrandContests\" />
     <Folder Include="Controllers\Management\Brand\BrandCertifications\" />
     <Folder Include="Controllers\Management\Brand\BrandMediaRelations\" />
     <Folder Include="Controllers\Management\Brand\BrandAwards\" />
