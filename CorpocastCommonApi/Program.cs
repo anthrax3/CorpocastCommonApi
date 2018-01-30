@@ -17,8 +17,7 @@
 
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-
-
+using CorpocastCommonModels.Models;
 
 
 namespace CorpocastCommonApi
@@ -28,6 +27,23 @@ namespace CorpocastCommonApi
 
         public static void Main(string[] args)
         {
+            Holding holding = new Holding
+            {
+                Code = "COCA-COLA",
+                Name = "The Coca-Cola Company"
+            };
+
+            Subsidiary subsidiary = new Subsidiary
+            {
+                Code = "COKECANADA",
+                Name = "Coca-Cola Refreshments Canada",
+                ParentCorpocastEntity = holding
+            };
+
+            holding.Subsidiaries.Add(subsidiary);
+
+
+
 
             BuildWebHost(args).Run();
         }

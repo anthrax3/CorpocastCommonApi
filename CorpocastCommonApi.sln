@@ -8,12 +8,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorpocastCommonApi", "Corpo
 		{8DACA0C7-376F-4430-B33E-A14938D53291} = {8DACA0C7-376F-4430-B33E-A14938D53291}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorpocastCosmoDBDAL", "CorpocastCosmoDBDAL\CorpocastCosmoDBDAL.csproj", "{E217F834-BF62-4A59-A4D1-B98EFEBD2BF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorpocastCosmoDBDAL", "CorpocastCosmoDBDAL\CorpocastCosmoDBDAL.csproj", "{E217F834-BF62-4A59-A4D1-B98EFEBD2BF6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8DACA0C7-376F-4430-B33E-A14938D53291} = {8DACA0C7-376F-4430-B33E-A14938D53291}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorpocastModels", "CorpocastModels\CorpocastModels.csproj", "{8DACA0C7-376F-4430-B33E-A14938D53291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorpocastModels", "CorpocastModels\CorpocastModels.csproj", "{8DACA0C7-376F-4430-B33E-A14938D53291}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
